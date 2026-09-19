@@ -1,0 +1,38 @@
+name: KosovoMap
+options:
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+packages:
+  MapLibre:
+    url: https://github.com/maplibre/maplibre-gl-native-distribution
+    from: 6.0.0
+targets:
+  KosovoMap:
+    type: application
+    platform: iOS
+    sources:
+      - path: KosovoMap
+    dependencies:
+      - package: MapLibre
+        product: MapLibre
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.KosovoMap
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "1"
+    info:
+      path: Config/Info.plist
+      properties:
+        CFBundleDisplayName: KosovoMap
+        UILaunchScreen: {}
+        ITSAppUsesNonExemptEncryption: false
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        NSLocationWhenInUseUsageDescription: KosovoMap shows where you are on the map. Your location stays on this iPhone.
